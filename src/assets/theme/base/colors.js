@@ -111,16 +111,21 @@ export default {
   success: {
     main: "#01b574",
     focus: "#35d28a",
+    medium: "#4CD964",
+    dark: "#04B816",
   },
 
   warning: {
     main: "#ffb547",
     focus: "#ffcd75",
+    medium: "#FBAE1A",
+    gold: "#D4AF37",
   },
 
   error: {
     main: "#e31a1a",
     focus: "#ee5d50",
+    medium: "#EF0000",
   },
 
   light: {
@@ -131,6 +136,7 @@ export default {
   dark: {
     main: "#344767",
     focus: "#121241",
+    medium: "#4A4951",
   },
 
   gradients: {
@@ -435,5 +441,9 @@ export default {
 
   tabs: {
     indicator: { boxShadow: "#ddd" },
+  },
+
+  status: {
+    online: "#4CD964",
   },
 };

@@ -38,7 +38,7 @@ import palette from "assets/theme/base/colors";
 import borders from "assets/theme/base/borders";
 
 // Images
-import illustrationImage from "assets/images/illustration-image.png";
+import illustrationImage from "assets/images/logos/logo-banner.png";
 
 // Authentication layout components
 import IllustrationLayout from "layouts/authentication/components/IllustrationLayout";

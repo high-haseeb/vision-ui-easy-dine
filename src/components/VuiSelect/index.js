@@ -31,6 +31,7 @@ import styles from "components/VuiSelect/styles";
 
 const VuiSelect = forwardRef(({ size, error, success, ...rest }, ref) => {
   const { light } = colors;
+  console.log(rest);
 
   return (
     <Select

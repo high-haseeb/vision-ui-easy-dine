@@ -31,12 +31,12 @@ import { TimelineProvider } from "examples/Timeline/context";
 // Colors palette
 import colors from "assets/theme/base/colors";
 
-function TimelineList({ title, dark, children }) {
+function TimelineList({ title, dark, children, style = {} }) {
   const { info } = colors;
 
   return (
     <TimelineProvider value={dark}>
-      <Card sx={{ background: dark ? info.main : null }}>
+      <Card sx={{ ...style, background: dark ? info.main : null }}>
         <VuiBox>
           <VuiBox mb="30px">
             <VuiTypography variant="lg" fontWeight="bold" color={dark ? "white" : "white"}>

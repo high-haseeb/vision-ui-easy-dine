@@ -40,9 +40,28 @@ import SalesOverview from "./components/SalesOverview";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsGlobe } from "react-icons/bs";
 import { IoWallet, IoDocumentText } from "react-icons/io5";
+import TimelineList from "examples/Timeline/TimelineList";
+import TimelineItem from "examples/Timeline/TimelineItem";
+import { timelineDataLight } from "layouts/pages/projects/timeline/data/timelineData";
+import Restaurent1 from "assets/theme/components/card/ResstaurentCard/Restaurent2";
 
 function Default() {
   const { values } = breakpoints;
+
+  const renderTimelineItemsLight = timelineDataLight.slice(0, 2).map(
+    ({ color, icon, title, dateTime, description, badges, lastItem }) => (
+      <TimelineItem
+        key={title + color}
+        color={color}
+        icon={icon}
+        title={title}
+        dateTime={dateTime}
+        description={description}
+        badges={badges}
+        lastItem={lastItem}
+      />
+    )
+  );
 
   return (
     <DashboardLayout>
@@ -57,7 +76,7 @@ function Default() {
                 fontWeight="bold"
                 color="white"
               >
-                general statistics
+                General statistics
               </VuiTypography>
             </VuiBox>
             <Grid container>
@@ -78,7 +97,7 @@ function Default() {
               <Grid item xs={12} md={5} lg={6} xl={5}>
                 <VuiBox mb={3}>
                   <MiniStatisticsCard
-                    title={{ text: "today's money", fontWeight: "bold" }}
+                    title={{ text: "Totale Bestellungen", fontWeight: "bold" }}
                     count="$53,000"
                     percentage={{ color: "success", text: "+55%" }}
                     icon={<IoWallet color="white" />}
@@ -102,7 +121,7 @@ function Default() {
                 </VuiBox>
                 <VuiBox mb={3}>
                   <MiniStatisticsCard
-                    title={{ text: "sales", fontWeight: "bold" }}
+                    title={{ text: "Total Sales", fontWeight: "bold" }}
                     count="$103,430"
                     percentage={{ color: "success", text: "+5%" }}
                     icon={<FaShoppingCart color="white" />}
@@ -111,11 +130,17 @@ function Default() {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} md={10} lg={8.5} xl={7}>
-            <Grid item xs={12} lg={10}>
+          <Grid container spacing={1} xs={12} md={10} lg={8.5} xl={7}>
+            <Grid item xs={12} lg={6}>
               <Card>
-                <SalesTable title="Sales by Country" rows={salesTableData} />
+                {/* <SalesTable title="Sales by Country" rows={salesTableData} /> */}
+                <TimelineList title="Timeline with dotted line">
+                  {renderTimelineItemsLight}
+                </TimelineList>
               </Card>
+            </Grid>
+            <Grid item xs={12} lg={4}>
+              <Restaurent1 />
             </Grid>
           </Grid>
           <Grid container spacing={3} mt="2px">

@@ -91,16 +91,16 @@ function IllustrationLayout({ color, header, title, description, illustration, c
           height="calc(100%)"
           position="relative"
           textAlign="center"
-          variant="gradient"
+          // variant="gradient"
           m={0}
           px={{ xs: 13, lg: 6, xl: 13 }}
           sx={{
             overflow: "hidden",
-            background: linearGradient(
-              gradients.info.main,
-              gradients.info.state,
-              gradients.info.deg
-            ),
+            // background: linearGradient(
+            //   gradients.info.main,
+            //   gradients.info.state,
+            //   gradients.info.deg
+            // ),
           }}
         >
           {illustration.image && (

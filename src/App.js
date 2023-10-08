@@ -49,6 +49,9 @@ import { useVisionUIController, setMiniSidenav, setOpenConfigurator } from "./co
 
 // Plugins custom css
 import "./assets/theme/base/plugins.css";
+import OrderDetail from "layouts/space/orderDetail/OrderDetail";
+import OrderDetail2 from "layouts/space/orderDetail/OrderDetail2";
+import "./app.css";
 
 export default function App() {
   const [controller, dispatch] = useVisionUIController();
@@ -177,6 +180,13 @@ export default function App() {
       {layout === "vr" && <Configurator />}
       <Switch>
         {getRoutes(routes)}
+        <Route exact path={"/dashboards/order/:id"} component={OrderDetail} key={"order-detail"} />
+        <Route
+          exact
+          path={"/dashboards/client-order/:id"}
+          component={OrderDetail2}
+          key={"order-detail2"}
+        />
         <Redirect from="*" to="/dashboards/default" />
       </Switch>
     </ThemeProvider>

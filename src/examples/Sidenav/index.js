@@ -41,6 +41,7 @@ import SidenavCard from 'examples/Sidenav/SidenavCard';
 
 // Vision UI Dashboard PRO custom icons
 import SimmmpleLogo from 'examples/Icons/SimmmpleLogo';
+import logo from 'assets/images/logos/logo.png'
 
 // Custom styles for the Sidenav
 import SidenavRoot from 'examples/Sidenav/SidenavRoot';
@@ -56,9 +57,9 @@ import { renderThumb, renderTrack, renderTrackRTL, renderView, renderViewRTL } f
 import { useVisionUIController, setMiniSidenav, setTransparentSidenav } from 'context';
 
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
-	const [ openCollapse, setOpenCollapse ] = useState(false);
-	const [ openNestedCollapse, setOpenNestedCollapse ] = useState(false);
-	const [ controller, dispatch ] = useVisionUIController();
+	const [openCollapse, setOpenCollapse] = useState(false);
+	const [openNestedCollapse, setOpenNestedCollapse] = useState(false);
+	const [controller, dispatch] = useVisionUIController();
 	const { miniSidenav, transparentSidenav } = controller;
 	const location = useLocation();
 	const { pathname } = location;
@@ -75,8 +76,8 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 			}
 
 			/** 
-     The event listener that's calling the handleMiniSidenav function when resizing the window.
-    */
+	 The event listener that's calling the handleMiniSidenav function when resizing the window.
+	*/
 			window.addEventListener('resize', handleMiniSidenav);
 
 			// Call the handleMiniSidenav function to set the state with the initial value.
@@ -85,7 +86,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 			// Remove event listener on cleanup
 			return () => window.removeEventListener('resize', handleMiniSidenav);
 		},
-		[ dispatch, location ]
+		[dispatch, location]
 	);
 
 	useEffect(() => {
@@ -235,25 +236,8 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 											mr: miniSidenav || (miniSidenav && transparentSidenav) ? 0 : 1
 										})
 									}>
-									<SimmmpleLogo size='24px' />
+									<img src={logo} alt="easy-dine-logo" style={{ width: "100%" }} />
 								</VuiBox>
-								<VuiTypography
-									variant='button'
-									textGradient={true}
-									color='logo'
-									fontSize={14}
-									letterSpacing={2}
-									fontWeight='medium'
-									sx={
-										((theme) => sidenavLogoLabel(theme, { miniSidenav, transparentSidenav }),
-										{
-											opacity: miniSidenav || (miniSidenav && transparentSidenav) ? 0 : 1,
-											maxWidth: miniSidenav || (miniSidenav && transparentSidenav) ? 0 : '100%',
-											margin: '0 auto'
-										})
-									}>
-									{brandName}
-								</VuiTypography>
 							</VuiBox>
 						</VuiBox>
 						<Divider light />
@@ -276,7 +260,7 @@ Sidenav.defaultProps = {
 
 // Typechecking props for the Sidenav
 Sidenav.propTypes = {
-	color: PropTypes.oneOf([ 'primary', 'secondary', 'info', 'success', 'warning', 'error', 'dark' ]),
+	color: PropTypes.oneOf(['primary', 'secondary', 'info', 'success', 'warning', 'error', 'dark']),
 	brand: PropTypes.string,
 	brandName: PropTypes.string.isRequired,
 	routes: PropTypes.arrayOf(PropTypes.object).isRequired
