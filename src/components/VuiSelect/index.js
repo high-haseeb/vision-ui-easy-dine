@@ -28,15 +28,23 @@ import colors from "assets/theme/base/colors";
 
 // Custom styles for VuiSelect
 import styles from "components/VuiSelect/styles";
+import VuiBox from "components/VuiBox";
+
+const CustomValue = (props) => (
+  <VuiBox display="flex" sx={{ alignItems: "center", gap: 1, justifyContent: "space-evenly" }}>
+    {props?.data?.icon && <img src={props?.data?.icon} alt="" />}
+    {props?.data?.label}
+  </VuiBox>
+);
 
 const VuiSelect = forwardRef(({ size, error, success, ...rest }, ref) => {
   const { light } = colors;
-  console.log(rest);
 
   return (
     <Select
       {...rest}
       ref={ref}
+      components={{ MultiValueLabel: CustomValue }}
       styles={styles(size, error, success)}
       theme={(theme) => ({
         ...theme,

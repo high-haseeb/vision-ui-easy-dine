@@ -126,6 +126,7 @@ export default {
     main: "#e31a1a",
     focus: "#ee5d50",
     medium: "#EF0000",
+    dark: "#D30000",
   },
 
   light: {

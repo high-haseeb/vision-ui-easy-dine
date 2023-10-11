@@ -1,0 +1,22 @@
+/* App.css */
+.menu-container {
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  white-space: nowrap;
+  transition: transform 0.4s;
+}
+
+.menu-item {
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+.arrow {
+  cursor: pointer;
+}

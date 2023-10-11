@@ -85,6 +85,8 @@ import Settings2 from "layouts/space/settings/Settings";
 import NewRestaurent from "layouts/space/restaurents/new-restaurent";
 import AdminSettings from "layouts/Settings/adminSettings";
 import ClientSettings from "layouts/Settings/clientSettings";
+import AccountSettings from "layouts/space/AccountSettings/AccountSettings";
+import ProductForm from "layouts/space/product-form/ProductForm";
 
 const routes = [
   {
@@ -100,8 +102,30 @@ const routes = [
         component: Default,
       },
       { name: "On Boarding", key: "crm", route: "/dashboards/crm", component: NewRestaurent },
-      { name: "Admin Settings", key: "admin-settings", route: "/dashboards/admin-settings", component: AdminSettings },
-      { name: "Client Settings", key: "client-settings", route: "/dashboards/client-settings", component: ClientSettings },
+      {
+        name: "Admin Settings",
+        key: "admin-settings",
+        route: "/dashboards/admin-settings",
+        component: AdminSettings,
+      },
+      {
+        name: "Client Settings",
+        key: "client-settings",
+        route: "/dashboards/client-settings",
+        component: ClientSettings,
+      },
+      {
+        name: "Account Settings",
+        key: "account-settings",
+        route: "/dashboards/account-settings",
+        component: AccountSettings,
+      },
+      {
+        name: "Create product",
+        key: "create-product",
+        route: "/dashboards/create-product",
+        component: ProductForm,
+      },
     ],
   },
   {

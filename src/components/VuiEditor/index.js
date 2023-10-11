@@ -26,7 +26,7 @@ import VuiEditorRoot from "components/VuiEditor/VuiEditorRoot";
 
 function VuiEditor(props) {
   return (
-    <VuiEditorRoot>
+    <VuiEditorRoot sx={{ height: "100%" }}>
       <ReactQuill theme="snow" {...props} />
     </VuiEditorRoot>
   );

@@ -94,7 +94,7 @@ function Default() {
             </Grid>
 
             <Grid container spacing={3}>
-              <Grid item xs={12} md={5} lg={6} xl={5}>
+              <Grid item xs={12} md={6}>
                 <VuiBox mb={3}>
                   <MiniStatisticsCard
                     title={{ text: "Totale Bestellungen", fontWeight: "bold" }}
@@ -110,7 +110,7 @@ function Default() {
                   icon={<BsGlobe color="white" />}
                 />
               </Grid>
-              <Grid item xs={12} md={5} lg={6} xl={5}>
+              <Grid item xs={12} md={6}>
                 <VuiBox mb={3}>
                   <MiniStatisticsCard
                     title={{ text: "new clients", fontWeight: "bold" }}
@@ -131,7 +131,7 @@ function Default() {
             </Grid>
           </Grid>
           <Grid container spacing={1} xs={12} md={10} lg={8.5} xl={7}>
-            <Grid item xs={12} lg={6}>
+            <Grid item xs={12} md={6}>
               <Card>
                 {/* <SalesTable title="Sales by Country" rows={salesTableData} /> */}
                 <TimelineList title="Timeline with dotted line">
@@ -139,7 +139,7 @@ function Default() {
                 </TimelineList>
               </Card>
             </Grid>
-            <Grid item xs={12} lg={4}>
+            <Grid item xs={12} md={6}>
               <Restaurent1 />
             </Grid>
           </Grid>
