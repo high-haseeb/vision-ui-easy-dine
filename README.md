@@ -16,6 +16,8 @@ Check all components <a href="https://www.creative-tim.com/learning-lab/react/ov
 
 **Documentation built by Developers**
 
+**Kristian Kovac**
+
 Each element is well presented in a very complex documentation.
 You can read more about the <a href="https://www.creative-tim.com/learning-lab/react/overview/vision-ui-dashboard/?ref=readme-vudreactpro" target="_blank">documentation here</a>.
 
