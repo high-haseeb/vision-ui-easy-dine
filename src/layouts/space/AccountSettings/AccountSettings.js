@@ -5,7 +5,7 @@ import VuiTypography from "components/VuiTypography";
 import Footer from "examples/Footer";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import HorizontalMenu from "./HorizontalMenu";
 import './account-settings.css'
 
@@ -19,220 +19,93 @@ import VuiInput from "components/VuiInput";
 import RestaurentInfo from "./RestaurentInfo";
 import Filter from "./Filter";
 
-const foods = [
-  {
-    name: "Nudlen",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: nudlen
-  },
-  {
-    name: "Ice Tea",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: iceTea
-  },
-  {
-    name: "Fisch",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: fish
-  },
-  {
-    name: "Fisch",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: fish
-  },
-  {
-    name: "Salat",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: salat
-  }, {
-    name: "Fanta",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: fanta
-  },
-  {
-    name: "Nudlen",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: nudlen
-  },
-  {
-    name: "Ice Tea",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: iceTea
-  },
-  {
-    name: "Fisch",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: fish
-  },
-  {
-    name: "Fisch",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: fish
-  },
-  {
-    name: "Salat",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: salat
-  }, {
-    name: "Fanta",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: fanta
-  },
-  {
-    name: "Nudlen",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: nudlen
-  },
-  {
-    name: "Ice Tea",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: iceTea
-  },
-  {
-    name: "Fisch",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: fish
-  },
-  {
-    name: "Fisch",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: fish
-  },
-  {
-    name: "Salat",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: salat
-  }, {
-    name: "Fanta",
-    category: "Hookah, Smoke",
-    rating: "4.5(0.5k)",
-    waitTime: "15-20 min",
-    price: "10.56",
-    image: fanta
+class AccountSettings extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+        foods: []
+    };
   }
-];
 
-function AccountSettings(props) {
-  const { values } = breakpoints;
+  componentDidMount() {
 
+    fetch(`http://localhost:8095/menuitems`)
+        .then(response => response.json())
+        .then(data => this.setState({foods: data}));
 
-  return (
-    <DashboardLayout>
-      <DashboardNavbar />
-      <VuiBox py={3}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={8}>
-            <VuiBox display="flex" sx={{ justifyContent: "space-between" }}>
-              <HorizontalMenu />
-            </VuiBox>
-            <Grid container spacing={2} mt={2}>
-              {foods.map((food, index) => {
-                return (
-                  <Grid key={index} item xs={12} md={4} xxl={3}>
-                    <FoodCard {...food} />
-                  </Grid>
-                )
-              })}
+  }
+
+  render() {
+
+      const {foods} = this.state;
+
+      return (
+      <DashboardLayout>
+        <DashboardNavbar />
+        <VuiBox py={3}>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={8}>
+              <VuiBox display="flex" sx={{ justifyContent: "space-between" }}>
+                <HorizontalMenu />
+              </VuiBox>
+              <Grid container spacing={2} mt={2}>
+                {foods.map((food, index) => {
+                  return (
+                    <Grid key={index} item xs={12} md={4} xxl={3}>
+                      <FoodCard {...food} />
+                    </Grid>
+                  )
+                })}
+              </Grid>
+            </Grid>
+            <Grid item xs={12} md={4} mt={8}>
+              <VuiInput
+                placeholder="Name, Artikelnummer,datum"
+                icon={{ component: "search", direction: "left" }}
+                sx={({ breakpoints }) => ({
+                  [breakpoints.down("sm")]: {
+                    maxWidth: "80px",
+                  },
+                  [breakpoints.only("sm")]: {
+                    maxWidth: "80px",
+                  },
+                  backgroundColor: "info.main !important",
+                })}
+              />
+
+              <RestaurentInfo />
+              <Card sx={{ marginY: 3 }}>
+                <Button
+                  component="button"
+                  color="info"
+                  sx={{
+                    backgroundColor: "secondary.main",
+                    boxShadow: "0px 18px 24px 0px#0075ff",
+                    // padding: "12px 50px !important",
+                    width: "100%",
+                    fontSize: 18,
+                    fontWeight: 700,
+                    color: "white",
+                    marginTop: 3,
+                    textTransform: "capitalize"
+                  }}
+                  rel="noreferrer"
+                  // height="35px"
+                  size="small"
+                // onClick={handleClick}
+                >
+                  Produkt Hinzufügen
+                </Button>
+              </Card>
+              <Filter />
             </Grid>
           </Grid>
-          <Grid item xs={12} md={4} mt={8}>
-            <VuiInput
-              placeholder="Name, Artikelnummer,datum"
-              icon={{ component: "search", direction: "left" }}
-              sx={({ breakpoints }) => ({
-                [breakpoints.down("sm")]: {
-                  maxWidth: "80px",
-                },
-                [breakpoints.only("sm")]: {
-                  maxWidth: "80px",
-                },
-                backgroundColor: "info.main !important",
-              })}
-            />
-
-            <RestaurentInfo />
-            <Card sx={{ marginY: 3 }}>
-              <Button
-                component="button"
-                color="info"
-                sx={{
-                  backgroundColor: "secondary.main",
-                  boxShadow: "0px 18px 24px 0px#0075ff",
-                  // padding: "12px 50px !important",
-                  width: "100%",
-                  fontSize: 18,
-                  fontWeight: 700,
-                  color: "white",
-                  marginTop: 3,
-                  textTransform: "capitalize"
-                }}
-                rel="noreferrer"
-                // height="35px"
-                size="small"
-              // onClick={handleClick}
-              >
-                Produkt Hinzufügen
-              </Button>
-            </Card>
-            <Filter />
-          </Grid>
-        </Grid>
-      </VuiBox>
-      <Footer />
-    </DashboardLayout>
-  );
+        </VuiBox>
+        <Footer />
+      </DashboardLayout>
+    );
+  }
 }
 
-export default AccountSettings
-  ;
+export default AccountSettings;
