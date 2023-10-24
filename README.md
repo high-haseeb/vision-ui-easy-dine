@@ -4,7 +4,7 @@
 
 ![Product Gif](https://i.ibb.co/bQ4zpkj/vision-ui-pro-react.png)
 
-Most trendiest, complex and innovative Premium Dashboard Made by [Simmmple](https://simmmple.com?ref=readme-vudreactpro) & [Creative Tim](https://creative-tim.com/?ref=readme-vudreactpro). Check our latest Premium ReactJS Dashboard.
+Most trendiest, complex and innovative Premium Dashboard Made by [Simmmple](https://simmmple.com?ref=readme-vudreactpro) & [Creative Tim](https://creative-tim.com/?ref=readme-vudreactpro). Check our latest Premium ReactJS Dashboard. 
 
 Start your Development with an Innovative Admin Template for MUI and React. If you like the look & feel of the hottest design trend right now, Vision UI, you will fall in love with this dashboard! It features a huge number of components built to fit together and look amazing. 
 
