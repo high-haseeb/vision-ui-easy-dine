@@ -7,7 +7,7 @@ import React from 'react'
 import VuiButton from 'components/VuiButton'
 import { Button } from '@mui/material'
 
-const FoodCard = ({ image, name, category, rating, waitTime, price }) => {
+const FoodCard = ({ image, name, category, rating, waitTime, price, id }) => {
     return (
         <VuiBox sx={{
             borderRadius: "26px 26px 26px 26px",
@@ -15,7 +15,7 @@ const FoodCard = ({ image, name, category, rating, waitTime, price }) => {
             overflow: "hidden"
         }}>
             <VuiBox sx={{ height: 136, width: "100%" }}>
-                <img src={image} alt="" style={{ width: "100%", height: "100%" }} />
+                <img src={"http://localhost:8095/menuitems/" + id + "/image"} alt="" style={{ width: "100%", height: "100%" }} />
             </VuiBox>
             <VuiBox p={2}>
                 <VuiBox display="flex" sx={{ justifyContent: "center" }} >
