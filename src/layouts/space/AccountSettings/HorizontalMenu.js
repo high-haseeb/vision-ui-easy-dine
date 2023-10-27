@@ -23,7 +23,8 @@ class HorizontalMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            menues: []
+            menues: [],
+            selectedMenu: null
         };
 
     }
@@ -43,10 +44,16 @@ class HorizontalMenu extends React.Component {
         }
     };
 
+    changeSelectedMenu = (id) => {
+        this.setState({ selectedMenu: id })
+
+        
+
+    }
+
     render() {
         const { menues } = this.state;
-        //const [selectedMenu, setSelectedMenu] = useState(0);
-        const selectedMenu = 1;
+        var { selectedMenu } = this.state;
 
         return (
 
@@ -57,8 +64,8 @@ class HorizontalMenu extends React.Component {
                         const variant = isActive ? "contained" : "text";
                         const color = isActive ? "info" : "white"
                         return (
-                            <VuiButton onClick={function () { console.log('#### now') }} key={menu.id} variant={variant} color={color}>
-                                <VuiTypography color="white" sx={{ fontSize: 10, }} fontWeight="bold">
+                            <VuiButton onClick={() => this.changeSelectedMenu(menu.id)} key={menu.id} variant={variant} color={color}>
+                                <VuiTypography color="white" sx={{ fontSize: 10 }} fontWeight="bold">
                                     {menu.name}
                                 </VuiTypography>
                             </VuiButton>
