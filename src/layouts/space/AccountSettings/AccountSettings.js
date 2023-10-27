@@ -46,7 +46,7 @@ class AccountSettings extends Component {
         <VuiBox py={3}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={8}>
-              <VuiBox display="flex" sx={{ justifyContent: "space-between" }}>
+              <VuiBox sx={{ justifyContent: "space-between"}}>
                 <HorizontalMenu />
               </VuiBox>
               <Grid container spacing={2} mt={2}>
