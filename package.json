@@ -13,10 +13,6 @@
 		"type": "git",
 		"url": "git+https://github.com/creativetimofficial/ct-vision-ui-dashboard-pro-react.git"
 	},
-	"engines": {
-		"node": "14 || 15 || 16 || 18.16.0",
-		"npm": ">=6"
-	},
 	"dependencies": {
 		"@asseinfo/react-kanban": "2.1.0",
 		"@emotion/cache": "11.4.0",
